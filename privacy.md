@@ -4,91 +4,103 @@ title: FlowState Privacy Policy
 
 # FlowState — Privacy Policy
 
-**Last updated:** 9 September 2026
+**Last updated:** 10 October 2026
 
-FlowState is a workout tracker for iPhone. This policy describes what it collects, where that
-goes, and how to get rid of it. It is written to be read rather than to be defensible.
+## Who and what
+
+FlowState is a workout tracker for iPhone, made by Ben Penchuk, an individual. In this policy "we" means him. It says what FlowState collects, where that goes, and how to get rid of it.
 
 ## The short version
 
-- **You can use FlowState without an account.** Everything about training — logging sets, the
-  rest timer, your history, templates, records — works signed out, and nothing leaves your
-  phone unless you sign in.
-- **If you sign in, your training data is backed up to our server** so you don't lose it with
-  your phone, and so it can appear on more than one device.
-- **Nothing is sold, shared, or used for advertising.** There is no advertising SDK, no
-  analytics SDK, and no third-party tracking of any kind in this app.
-- **You can delete your account and everything on the server from inside the app**, at any
-  time, without asking anyone.
+- **An account is required.** Your training is saved on your phone first and backed up to your account, so a new phone can restore it. That backup is the only one. FlowState has no export feature.
+- **No ads, no analytics SDK, no tracking.** Nothing is sold, and nothing is shared for anyone else's use.
+- **You can delete everything from inside the app, at any time.** Delete account erases your account, its backup on our server, and the workouts, templates, records and weigh-ins on that iPhone. It cannot be undone.
 
-## What is stored on your phone
+## What we collect
 
-Whether or not you have an account:
+All of this is stored on your phone. Once you are signed in, it is also backed up to your account.
 
-- Workouts, exercises, sets, weights, reps, rest times and any notes you add
-- Templates you create
-- Profile details you choose to give: name, birth date, gender, height, body weight, training
-  goal, experience level, days per week, and equipment you have access to
-- App preferences — units, appearance, default rest, whether RPE is shown
+- **Account:** your email address (Apple's relay address if you hide yours when you use Sign in with Apple), how you signed in (Apple or email), your account ID, and a username if your account has one. If you sign up with email, your password is held by our sign-in service, not by us in readable form.
+- **Profile, all optional:** first name, last name and display name (Sign in with Apple can supply your name), a contact email, **phone number**, **birth date**, **gender** and **height**.
+- **Profile picture:** one of eight preset pictures, or your initials. FlowState never asks for, reads or uploads a photo.
+- **Settings and goals:** units, default rest time, appearance, training goal, experience level, days per week and the equipment you have. A few switches, such as the rest alert sound, stay on the phone only.
+- **Training:** workouts (name, start and finish times, notes, effort rating, total rest time and total volume), the exercises in them, and every set (weight, reps, duration, distance, equipment, set type, reps in reserve or RPE, notes, and when it was done). Also templates, custom exercises you create, and which exercises you favourite or hide. Anything you type into a name or a note is saved too. Personal records are worked out on your phone from your sets and are not stored separately on our server.
+- **Body:** weigh-ins and body-fat percentages you enter, and body weights imported from Apple Health (see Apple Health below).
+- **App state:** which onboarding steps you have finished, so a restore does not ask you again.
+- **Server logs:** our host keeps ordinary request logs, which include your IP address, for a short time to run and secure the service. We do not use them to profile you.
 
-Birth date, gender and body weight are **health data**. They are optional. FlowState works
-without them; they exist because strength standards and bodyweight-exercise volume depend on
-them.
+Gender, phone number, birth date and height are optional. No feature calculates anything from them today. They are stored with your profile.
 
-## What is sent to our server, and when
+## What we don't collect
 
-**Only if you sign in.** Signing in is the only feature in FlowState that requires a network
-connection.
+- Location, contacts, photos, microphone, or advertising identifiers.
+- Analytics or behavioural tracking. FlowState contains no advertising or analytics SDK. The app's only network connections are to our backend and, for Sign in with Apple, to Apple.
+- Crash reports. iOS gives the app daily crash and performance reports (Apple's MetricKit), and the app writes its own error messages next to them in a log file on your phone. FlowState never uploads that log and never attaches it to feedback. Deleting the app removes it. Delete account does not.
+- Separately, if you have turned on "Share With App Developers" in iOS settings, Apple may send us anonymous crash reports. Those come from Apple, not from the app.
+- Feedback: Settings → Send feedback opens your own mail app with a message addressed to us. We receive only what you write, from the email account you send it from.
 
-When you do, the data listed above is copied to our backend (Supabase, hosted in the United
-States) so it can be restored and synced. It is stored under your account and is readable only
-by you: every table enforces row-level security keyed to your account, so no other user of
-FlowState can read your rows.
+## How it's used
 
-**Your email address** comes from Sign in with Apple or from the email you register with. If
-you use Sign in with Apple and choose to hide your email, we only ever see Apple's relay
-address.
+Only to run the app: show your history, back it up, and restore it on a new phone. It is never used for advertising, never sold, and never used to train AI models.
 
-## What is not collected
+## Where it's stored
 
-- No advertising identifiers, and no advertising
-- No analytics or behavioural tracking
-- No location
-- No contacts, photos, or microphone
-- Nothing is sold or shared with third parties for their own purposes
-
-Crash and hang reports come from Apple's MetricKit and stay on your device unless you choose
-to send them to us with a support email.
+- **On your phone**, in the app's own storage. FlowState does not use iCloud to sync.
+- **In Supabase**, which hosts our database and sign-in. The project is in the US East (Ohio) region, so if you are outside the United States your data is sent to the United States. Supabase acts as our processor.
+- Every table is protected by row-level security, so other FlowState users cannot read your rows. As the operator, we can reach the database through Supabase's admin tools.
+- Apple handles Sign in with Apple under its own privacy policy.
 
 ## Apple Health
 
-FlowState can write your finished workouts to Apple Health, and read your body weight from it,
-**only if you grant permission**. That data moves between FlowState and Health on your device.
-Health data read from Apple Health is never used for advertising and is never shared.
+Apple Health access is optional and only with your permission. FlowState asks once, in one sheet, for both of the things below.
 
-You can withdraw this at any time in Settings → Privacy & Security → Health.
+- **Writing:** FlowState saves each finished workout to Health as a strength-training workout. It writes the start and end time and FlowState's internal ID for the workout. It does not write sets, reps, weights or notes.
+- **Reading:** FlowState reads your body weight from Health each time you open the app. The first import looks back one year. **Each weight it reads is saved in FlowState as a weigh-in and backed up to your account, like a weight you type.**
+- Health data is never used for advertising or marketing, never sold, and never shared with anyone other than our backend host, which stores the imported weights for us as described above.
+- To stop new reads and writes, turn off FlowState's access in Settings → Privacy & Security → Health → FlowState. Weights already imported stay in FlowState until you delete them there or delete your account. Deleting a weight in the Health app does not remove FlowState's copy.
+- Delete account does not remove workouts FlowState saved to Health. You can delete those in the Health app.
 
-## Deleting your data
+## Retention
 
-- **Sign out** — the server keeps your backup; your phone keeps its copy.
-- **Delete account** (Settings → Account) — your account and everything backed up to it are
-  permanently erased. The workouts on your phone are kept, and are no longer backed up.
-- **Delete the app** — everything on the phone goes with it.
+- Your data is kept while your account exists.
+- When you delete a workout, an exercise in a workout, a set, a template, a custom exercise or a weigh-in, the server does not remove the row. It marks it as deleted (a deletion marker, sometimes called a tombstone) so your other devices delete it too. **Today that marker can still hold what the row held**, such as a set's weight and reps or a workout's name, times and notes, until you delete your account.
+- When you delete your account, your rows leave the server straight away. Copies can remain in Supabase's routine daily backups, which it keeps for 7 days. We keep no other copy.
+- Server logs are kept for a short time and then removed.
 
-You can export everything at any time from Settings → Data → Export, which produces a single
-JSON file you keep.
+## Your controls
 
-If you are in the EU or UK, this covers your rights to access, export and erasure. If you
-would rather ask a person, use the address below.
+- **Sign out:** your data stays on the phone and in your account. You sign in again to keep using FlowState.
+- **Delete account** (Settings, at the bottom, when you are signed in): permanently erases your account and its backup on our server, and the workouts, templates, records, custom exercises and weigh-ins on that iPhone. It also clears the name, username, birth date, gender, height, email, phone number, goal, experience and days per week from the phone. Only app preferences such as units and appearance stay. It needs an internet connection, and if the server cannot delete your account nothing is changed. It does not remove FlowState from your Apple ID's Sign in with Apple list. You can do that in iOS Settings → your name → Sign-In & Security → Sign in with Apple.
+- **Delete the app:** removes the copy on the phone. Your account and its backup remain, and signing in again restores them.
+- **Share a workout:** the share button on a workout sends a text summary of that one workout to the app you pick. FlowState has no way to export everything.
+- **Access, correction, a copy of your data, or deletion by request:** email the address under Contact and we will reply within 30 days. This covers your rights under GDPR, UK GDPR, the California CCPA, and Washington and Nevada consumer health data law. If we refuse a request, you can appeal by replying to our answer. FlowState does not sell or share personal data, so there is nothing to opt out of.
 
-## Children
+## Consumer health data
 
-FlowState is not intended for children under 13 and we do not knowingly collect their data.
+For Washington's My Health My Data Act and Nevada's consumer health data law, this is the health-related data FlowState handles.
+
+| Data | Where it comes from | Why | Who gets it |
+|---|---|---|---|
+| Body weight and body-fat percentage | You, or Apple Health (weight only) | Show your weigh-ins and back them up | Supabase, as our processor |
+| Height, birth date, gender (optional) | You | Stored with your profile | Supabase, as our processor |
+| Workouts, sets, exercises, effort and goals | You, using the app | Show your history and back it up | Supabase, as our processor |
+
+We do not sell this data and we do not share it with anyone else. You can withdraw consent by turning off Health access, or by deleting your account. You can ask us to delete it, or to tell you what we hold, using the address under Contact.
+
+## Security
+
+- Data is encrypted in transit (TLS).
+- Your sign-in session is kept in your iPhone's Keychain.
+- If a breach affects your data, we will tell you.
+
+## Age
+
+FlowState is not for children under 13, and we do not knowingly collect their data. Where the age of digital consent is higher (up to 16 in parts of the EU), you need a parent's permission. If you think a child has an account, contact us and we will delete it.
 
 ## Changes
 
-If this policy changes materially, the app will say so before the change takes effect.
+We will update the date at the top. If a change is material, we will tell you before it takes effect, by email to the address on your account.
 
 ## Contact
 
-**ben@penchuk.com**
+Questions, requests and feedback: {{contact}}

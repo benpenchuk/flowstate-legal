@@ -8,7 +8,7 @@ tying it to one host's build pipeline is how a privacy policy 404s two years fro
 
 Markdown stays the source of truth; this only renders it.
 
-    python3 docs-site/build.py
+    python3 build.py
 """
 import html
 import re
@@ -16,6 +16,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
+
+# The one place the contact address lives. Markdown uses the {{contact}} token and the page
+# footer uses this constant, so changing to an alias later is a one-line edit.
+CONTACT = "ben@penchuk.com"
+
+# Markdown files that are repo docs, not published pages.
+NOT_PAGES = {"README.md"}
 
 TEMPLATE = """<!doctype html>
 <html lang="en">
@@ -76,7 +83,7 @@ TEMPLATE = """<!doctype html>
 <body>
 <main>
 {body}
-<footer>FlowState · <a href="mailto:ben@penchuk.com">ben@penchuk.com</a></footer>
+<footer>FlowState · <a href="mailto:{contact}">{contact}</a></footer>
 </main>
 </body>
 </html>
@@ -93,6 +100,7 @@ def inline(text: str) -> str:
 
 def render(md: str) -> tuple[str, str]:
     title = "FlowState"
+    md = md.replace("{{contact}}", f"[{CONTACT}](mailto:{CONTACT})")
     lines = md.splitlines()
 
     # YAML front matter, if any.
@@ -131,6 +139,9 @@ def render(md: str) -> tuple[str, str]:
         elif line.startswith("---") and set(line) == {"-"}:
             close()
             out.append("<hr>")
+        elif mode == "ul" and raw[:1] in (" ", "\t") and out and out[-1].endswith("</li>"):
+            # A wrapped bullet: indented text under a list item continues that item.
+            out[-1] = out[-1][: -len("</li>")] + " " + inline(line) + "</li>"
         elif line.startswith(("- ", "* ")):
             if mode != "ul":
                 close()
@@ -174,9 +185,11 @@ def render(md: str) -> tuple[str, str]:
 def main() -> int:
     built = []
     for source in sorted(ROOT.glob("*.md")):
+        if source.name in NOT_PAGES:
+            continue
         title, body = render(source.read_text())
         target = ROOT / f"{source.stem}.html"
-        target.write_text(TEMPLATE.format(title=title, body=body))
+        target.write_text(TEMPLATE.format(title=title, body=body, contact=CONTACT))
         built.append(f"{source.name} -> {target.name} ({target.stat().st_size:,} bytes)")
     print("\n".join(built) if built else "no markdown found")
     return 0
