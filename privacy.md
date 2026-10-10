@@ -35,9 +35,9 @@ Gender, phone number, birth date and height are optional. No feature calculates 
 
 - Location, contacts, photos, microphone, or advertising identifiers.
 - Analytics or behavioural tracking. FlowState contains no advertising or analytics SDK. The app's only network connections are to our backend and, for Sign in with Apple, to Apple.
-- Crash reports. iOS gives the app daily crash and performance reports (Apple's MetricKit), and the app writes its own error messages next to them in a log file on your phone. FlowState never uploads that log and never attaches it to feedback. Deleting the app removes it. Delete account does not.
+- Crash reports. iOS gives the app daily crash and performance reports (Apple's MetricKit), and the app writes its own error messages next to them in a log file on your phone. FlowState never uploads that log. Feedback includes only its recent backup (sync) messages, as described below. Deleting the app removes it. Delete account does not.
 - Separately, if you have turned on "Share With App Developers" in iOS settings, Apple may send us anonymous crash reports. Those come from Apple, not from the app.
-- Feedback: Settings → Send feedback opens your own mail app with a message addressed to us. We receive only what you write, from the email account you send it from.
+- Feedback: Settings → Send feedback opens your own mail app with a message addressed to us. It is prefilled with a short technical summary to help us fix backup problems: the app version, iOS version, device model, backup status, how many changes are waiting to back up, when the last backup worked, and recent backup error messages. It contains no workouts, sets, notes or profile details. You can read, edit or delete the summary before sending. We receive only what you send, from the email account you send it from.
 
 ## How it's used
 
@@ -64,7 +64,7 @@ Apple Health access is optional and only with your permission. FlowState asks on
 
 - Your data is kept while your account exists.
 - When you delete a workout, an exercise in a workout, a set, a template, a custom exercise or a weigh-in, the server does not remove the row. It marks it as deleted (a deletion marker, sometimes called a tombstone) so your other devices delete it too. **Today that marker can still hold what the row held**, such as a set's weight and reps or a workout's name, times and notes, until you delete your account.
-- When you delete your account, your rows leave the server straight away. Copies can remain in Supabase's routine daily backups, which it keeps for 7 days. We keep no other copy.
+- When you delete your account, your rows leave the server straight away. Copies can remain in backups for up to 30 days: Supabase's routine daily backups last 7 days, and any backup we take ourselves is deleted within 30 days.
 - Server logs are kept for a short time and then removed.
 
 ## Your controls
