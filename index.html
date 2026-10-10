@@ -3,66 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FlowState</title>
-<meta name="description" content="How FlowState handles your data.">
-<style>
-  :root {
-    color-scheme: light dark;
-    --bg: #ffffff;
-    --fg: #1c1c1e;
-    --muted: #6b6b70;
-    --rule: #e5e5ea;
-    --accent: #e8590c;
-    --code-bg: #f5f5f7;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #000000;
-      --fg: #f2f2f7;
-      --muted: #9a9aa0;
-      --rule: #2c2c2e;
-      --accent: #ff7a33;
-      --code-bg: #1c1c1e;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--fg);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-text-size-adjust: 100%;
-  }
-  main { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 6rem; }
-  h1 { font-size: 2rem; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 .5rem; }
-  h2 { font-size: 1.3rem; margin: 2.5rem 0 .75rem; letter-spacing: -0.01em; }
-  h3 { font-size: 1.05rem; margin: 1.75rem 0 .5rem; }
-  p, ul, ol { margin: 0 0 1rem; }
-  ul, ol { padding-left: 1.4rem; }
-  li { margin-bottom: .4rem; }
-  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  strong { font-weight: 650; }
-  code {
-    background: var(--code-bg); padding: .15em .4em; border-radius: 4px;
-    font: .875em ui-monospace, SFMono-Regular, Menlo, monospace;
-  }
-  hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
-  table { border-collapse: collapse; width: 100%; margin: 0 0 1.25rem; font-size: .95rem; }
-  th, td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  th { font-weight: 650; }
-  .updated { color: var(--muted); font-size: .95rem; margin: 0 0 2rem; }
-  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
-</style>
+<title>FlowState, a strength training log for iPhone</title>
+<meta name="description" content="FlowState is an iPhone app for logging strength training. One tap per set, a rest timer that starts on its own, personal records and Apple Health. In private beta on TestFlight.">
+<meta name="theme-color" content="#f7f5f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131217" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://flowstatefit.app/">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta property="og:site_name" content="FlowState">
+<meta property="og:title" content="FlowState, a strength training log for iPhone">
+<meta property="og:description" content="FlowState is an iPhone app for logging strength training. One tap per set, a rest timer that starts on its own, personal records and Apple Health. In private beta on TestFlight.">
+<meta property="og:image" content="https://flowstatefit.app/icon.png">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
 <main>
+<section class="hero">
+<picture><source media="(prefers-color-scheme: dark)" srcset="icon-dark.png"><img src="icon.png" width="72" height="72" alt="" fetchpriority="high"></picture>
 <h1>FlowState</h1>
-<p>A workout tracker for iPhone.</p>
+<p class="tagline">A strength training log for iPhone.</p>
+<p class="lede">Log each set in one tap, rest on a timer that starts itself, and keep your records for every lift.</p>
+<p class="status">In private beta on TestFlight</p>
+</section>
+<article>
+<h2>What it does</h2>
 <ul>
-<li><a href="privacy.html">Privacy Policy</a></li>
-<li>Support: <a href="mailto:ben@penchuk.com">ben@penchuk.com</a></li>
+<li><strong>One tap per set.</strong> Each set is prefilled from your last session. If you hit the same numbers, logging it is one tap.</li>
+<li><strong>A rest timer that starts on its own.</strong> It starts when you log a working set. A Live Activity counts it down on your lock screen, and FlowState alerts you when rest is over, even from another app, if you allow notifications.</li>
+<li><strong>Personal records for every lift.</strong> FlowState flags a new record when you log it, and keeps each lift's best in one place.</li>
+<li><strong>Starter templates.</strong> Push, pull, legs, upper body and full body are ready to add and change. You can make your own too.</li>
+<li><strong>Apple Health.</strong> If you allow it, FlowState saves your finished workouts to Health and reads your body weight from it.</li>
+<li><strong>Works offline.</strong> Every set is saved on your iPhone first, so logging never waits for a signal.</li>
+<li><strong>Backed up to your account.</strong> Sign in with Apple or email, and a new iPhone gets your history back.</li>
+<li><strong>Free, with no ads.</strong> No tracking either. <a href="privacy">Read the privacy policy</a>.</li>
 </ul>
-<footer>FlowState · <a href="mailto:ben@penchuk.com">ben@penchuk.com</a></footer>
+<h2>Availability</h2>
+<p>FlowState is in private beta on TestFlight. It is coming to the App Store. There is no date yet.</p>
+<h2>Help</h2>
+<p>Questions and feedback are on the <a href="support">support page</a>.</p>
+</article>
 </main>
+<footer>
+<div class="foot">
+<nav aria-label="Footer"><a href="privacy">Privacy</a><a href="support">Support</a></nav>
+<p>Made by Ben Penchuk.</p>
+</div>
+</footer>
 </body>
 </html>

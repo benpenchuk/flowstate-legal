@@ -1,0 +1,251 @@
+/* FlowState site. One stylesheet for every page; plain CSS, system fonts, no JS.
+   Tokens follow the app's AppTheme (FlowState/Utilities/AppTheme.swift) and the design kit:
+   Flame is for small fills, ink goes on Flame, and orange text is Ember in light, Flame in dark.
+   Never a large orange surface on dark. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #f7f5f2;
+  --card: #ffffff;
+  --fg: #1c1b1f;
+  --muted: #6f6a63;
+  --rule: rgba(28, 27, 31, 0.1);
+  --card-edge: rgba(28, 27, 31, 0.06);
+  --code-bg: #efece8;
+  --flame: #f4621e;
+  --ink: #1c1b1f;
+  /* The app's Ember (#c8470c) is 4.4:1 on this background; this is a touch deeper for body text. */
+  --accent-text: #ba4009;
+  --wash: rgba(244, 98, 30, 0.14);
+  --font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-round: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131217;
+    --card: #1f1d24;
+    --fg: #f5f3f0;
+    --muted: #9d978f;
+    --rule: rgba(255, 255, 255, 0.1);
+    --card-edge: rgba(255, 255, 255, 0);
+    --code-bg: #1f1d24;
+    --accent-text: #f4621e;
+    --wash: rgba(244, 98, 30, 0.16);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.65 var(--font-text);
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+/* ---- Header (inner pages) ---- */
+
+.site-header {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--fg);
+  text-decoration: none;
+  font: 800 1.05rem/1 var(--font-round);
+  letter-spacing: -0.01em;
+}
+
+.brand img, .hero img {
+  display: block;
+  border-radius: 22.4%;
+}
+
+.brand img { width: 2rem; height: 2rem; }
+
+/* ---- Text ---- */
+
+h1 {
+  font: 900 2rem/1.15 var(--font-round);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font: 800 1.25rem/1.3 var(--font-round);
+  letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.75rem;
+}
+
+h3 { font: 800 1.05rem/1.4 var(--font-round); margin: 1.75rem 0 0.5rem; }
+
+p, ul, ol { margin: 0 0 1rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.4rem; }
+strong { font-weight: 650; }
+
+a {
+  color: var(--accent-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible, .button:focus-visible {
+  outline: 2px solid var(--flame);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+code {
+  background: var(--code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font: 0.875em ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+th { font-weight: 650; }
+
+.updated { color: var(--muted); font-size: 0.95rem; margin: 0 0 2rem; }
+
+/* ---- Home ---- */
+
+.hero { padding: 2.5rem 0 0.5rem; }
+
+.hero img { width: 4.5rem; height: 4.5rem; margin-bottom: 1.5rem; }
+
+.hero h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 0.75rem; }
+
+.tagline {
+  font: 700 1.3rem/1.35 var(--font-round);
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+}
+
+.lede { color: var(--muted); margin: 0 0 1.5rem; }
+
+/* The quiet Flame pill from the kit: wash behind accent text, never a solid fill. */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: var(--wash);
+  color: var(--accent-text);
+  font: 700 0.9rem/1.3 var(--font-round);
+}
+
+.status::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--flame);
+  flex: none;
+}
+
+/* Feature rows: one card, a hairline between rows. */
+.home article > ul {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px var(--card-edge);
+}
+
+.home article > ul > li {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.97rem;
+  line-height: 1.55;
+}
+
+.home article > ul > li:first-child { border-top: 0; }
+
+.home article > ul strong {
+  display: block;
+  font: 800 1.02rem/1.4 var(--font-round);
+  margin-bottom: 0.15rem;
+}
+
+.home h2 { margin-top: 2.25rem; }
+
+/* ---- Support ---- */
+
+.button {
+  display: inline-block;
+  padding: 0.95rem 1.5rem;
+  border-radius: 16px;
+  background: var(--flame);
+  color: var(--ink);
+  font: 800 1rem/1.2 var(--font-round);
+  text-decoration: none;
+}
+
+.button:active { transform: scale(0.96); }
+
+/* ---- Footer ---- */
+
+footer {
+  padding: 0 1.25rem 3.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.foot {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.foot nav { display: flex; gap: 1.5rem; margin-bottom: 0.5rem; }
+.foot nav a { color: var(--fg); text-decoration: none; font-weight: 650; }
+.foot nav a:hover { text-decoration: underline; }
+.foot p { margin: 0; }
+
+@media (min-width: 40rem) {
+  main { padding-top: 2.5rem; }
+  .hero { padding-top: 4rem; }
+  h1 { font-size: 2.4rem; }
+  .hero h1 { font-size: 3rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button { transition: transform 120ms ease-out; }
+}
