@@ -21,7 +21,7 @@ ROOT = Path(__file__).parent
 
 # The one place the contact address lives. Markdown uses the {{contact}} token (the policy and
 # the support page), so switching to an alias later is a one-line edit.
-CONTACT = "ben@penchuk.com"
+CONTACT = "support@flowstatefit.app"
 
 # The public address. Used only for the canonical and social-preview URLs; every link between
 # pages is relative, so the old GitHub Pages copy keeps working.
