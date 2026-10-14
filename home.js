@@ -9,15 +9,28 @@
   // Scroll reveals, once each. js-ready is added only after the observer exists. An element the reader has
   // already scrolled past (anchor jump, restored scroll) is revealed too, and if the observer never reports
   // anything the timeout reveals everything, so nothing can stay hidden.
+  // The observer only reports a change, so a jump (End key, dragging the scrollbar) can carry an element from
+  // below the screen to above it unreported. The sweep on scroll reveals anything left behind that way, and
+  // whatever sits in the last strip of the page, which the bottom margin would otherwise never count as seen.
   try {
     let reported = 0;
+    const pending = new Set($$(".reveal, .reveal-ring"));
+    const show = (el) => { el.classList.add("in"); pending.delete(el); io.unobserve(el); };
     const io = new IntersectionObserver((entries) => entries.forEach((e) => {
       reported++;
-      if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add("in"); io.unobserve(e.target); }
+      if (e.isIntersecting || e.boundingClientRect.top < 0) show(e.target);
     }), { rootMargin: "0px 0px -8% 0px" });
-    $$(".reveal, .reveal-ring").forEach((el) => io.observe(el));
+    const sweep = () => {
+      const end = innerHeight + scrollY >= root.scrollHeight - 2;
+      pending.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if ((r.width || r.height) && (r.bottom < 0 || (end && r.top < innerHeight))) show(el);
+      });
+    };
+    pending.forEach((el) => io.observe(el));
     root.classList.add("js-ready");
-    setTimeout(() => { if (!reported) $$(".reveal, .reveal-ring").forEach((el) => el.classList.add("in")); }, 1500);
+    addEventListener("scroll", () => { if (pending.size) requestAnimationFrame(sweep); }, { passive: true });
+    setTimeout(() => { if (!reported) [...pending].forEach(show); }, 1500);
   } catch (_) { /* leave everything visible */ }
 
   if (reduce || !("IntersectionObserver" in window)) return;
