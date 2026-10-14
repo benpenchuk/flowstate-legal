@@ -16,12 +16,12 @@ There are two kinds of page.
 **The home page is hand-written.** `index.html` (the markup), `home.css` (the styles), `home.js`
 (a small script for scroll reveals, the rest clock and the "log a set" demo), `mark.png` (the brand
 mark, drawn as a Flame-coloured CSS mask), `fonts/` (Nunito, SIL OFL, latin variable woff2 plus its
-licence; Apple devices use their own SF Rounded and never download it) and `og.png` (the link
+licence; Safari on Apple devices uses its own SF Rounded and does not download it) and `og.png` (the link
 preview). Edit those files directly. `build.py` does not touch `index.html`. The page has no build
 step, no framework and makes no request to any other origin. Everything is visible without JavaScript
-or with reduced motion; the script only adds motion, and hides nothing until it is running. The call
-to action is one `mailto:` link (appears twice in `index.html`): when the app is on the App Store,
-swap that button and the "private beta" lines for the store link.
+or with reduced motion; the script only adds motion, and hides nothing until it is running. The page
+has no call-to-action button for now (Ben, 2026-10-13); the hero and the closing section say "private
+beta" only. The `.btn` styles are kept for when one returns: a waitlist, then the App Store link.
 
 **`support.md` and `privacy.md` are rendered.** They are the sources; edit one, then regenerate:
 
@@ -45,7 +45,6 @@ Front matter on a document page can set `title` and `description`.
 The contact address is set once, as `CONTACT` in `build.py`. Write `{{contact}}` in the Markdown
 and it becomes a mailto link, or `{{mailto}}` for a bare `mailto:` URL. `[Text](url){.button}`
 draws a link as a button. Indented lines under a bullet continue that bullet. The privacy policy
-and the support page both use the constant, so switching to an alias is a one-line edit. The home
-page's invite links are written out in `index.html` and need the same edit.
+and the support page both use the constant, so switching to an alias is a one-line edit.
 
 Commit both the `.md` and the regenerated `.html`.
