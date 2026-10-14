@@ -11,26 +11,41 @@ app repo so that repo can stay private while these pages stay reachable.
 
 ## Editing
 
-`index.md`, `support.md` and `privacy.md` are the sources. Edit one, then regenerate:
+There are two kinds of page.
+
+**The home page is hand-written.** `index.html` (the markup), `home.css` (the styles), `home.js`
+(a small script for scroll reveals, the rest clock and the "log a set" demo), `mark.png` (the brand
+mark, drawn as a Flame-coloured CSS mask), `fonts/` (Nunito, SIL OFL, latin variable woff2 plus its
+licence; Apple devices use their own SF Rounded and never download it) and `og.png` (the link
+preview). Edit those files directly. `build.py` does not touch `index.html`. The page has no build
+step, no framework and makes no request to any other origin. Everything is visible without JavaScript
+or with reduced motion; the script only adds motion, and hides nothing until it is running. The call
+to action is one `mailto:` link (appears twice in `index.html`): when the app is on the App Store,
+swap that button and the "private beta" lines for the store link.
+
+**`support.md` and `privacy.md` are rendered.** They are the sources; edit one, then regenerate:
 
 ```bash
 python3 -B build.py
 ```
 
-That writes the `.html` files, which are what both hosts serve. `style.css` is the one shared
-stylesheet, and `icon.png` / `icon-dark.png` are the app icon (the favicon and the page mark).
+That writes `support.html` and `privacy.html`, which are what both hosts serve. `style.css` is their
+stylesheet, and `icon.png` / `icon-dark.png` are the app icon (the favicon and the touch icon).
+`privacy.html`, `privacy.md`, `support.html`, `support.md` and `style.css` are what the App Store's
+registered privacy URL points at: change them only on purpose.
+
 There is no Jekyll and no build step on either host. `.nojekyll` tells GitHub Pages to serve the
 files verbatim, and `vercel.json` turns on `cleanUrls` so `/privacy` and `/support` work without
-`.html`. Every link between pages is relative, so the GitHub Pages copy under `/flowstate-legal/`
+`.html`. Every link and asset path is relative, so the GitHub Pages copy under `/flowstate-legal/`
 keeps working. The App Store needs the privacy URL to keep resolving for as long as the app is
 listed.
 
-Front matter on a page can set `title`, `description` and `layout` (`home` or `doc`). The home
-layout also reads `tagline`, `lede` and `status` for the top of the page.
+Front matter on a document page can set `title` and `description`.
 
 The contact address is set once, as `CONTACT` in `build.py`. Write `{{contact}}` in the Markdown
 and it becomes a mailto link, or `{{mailto}}` for a bare `mailto:` URL. `[Text](url){.button}`
 draws a link as a button. Indented lines under a bullet continue that bullet. The privacy policy
-and the support page both use the constant, so switching to an alias is a one-line edit.
+and the support page both use the constant, so switching to an alias is a one-line edit. The home
+page's invite links are written out in `index.html` and need the same edit.
 
 Commit both the `.md` and the regenerated `.html`.

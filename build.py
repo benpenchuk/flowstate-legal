@@ -7,8 +7,9 @@ links to), or any static host. That matters because the App Store needs the priv
 working for as long as the app is listed, and tying it to one host's build pipeline is how a
 privacy policy 404s two years from now. Both hosts serve the committed .html files as they are.
 
-Markdown stays the source of truth; this only renders it. Front matter keys (all optional):
-title, description, layout (home or doc), and for the home layout: tagline, lede, status.
+Markdown stays the source of truth for the document pages (privacy, support); this only renders
+them. Front matter keys (all optional): title, description. The home page is not generated: index.html,
+home.css and home.js are written by hand.
 
     python3 -B build.py
 """
@@ -52,9 +53,9 @@ TEMPLATE = """<!doctype html>
 <meta property="og:image" content="{site}/icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="{layout}">
+<body class="doc">
 {header}<main>
-{hero}<article>
+<article>
 {body}
 </article>
 </main>
@@ -78,15 +79,6 @@ HEADER = (
     + ICON.format(size=32, extra="")
     + "<span>FlowState</span></a></header>\n"
 )
-
-HERO = """<section class="hero">
-""" + ICON.format(size=72, extra='fetchpriority="high"') + """
-<h1>FlowState</h1>
-<p class="tagline">{tagline}</p>
-<p class="lede">{lede}</p>
-<p class="status">{status}</p>
-</section>
-"""
 
 
 def inline(text: str) -> str:
@@ -186,27 +178,14 @@ def render(md: str) -> tuple[dict, str]:
 
 
 def page(stem: str, meta: dict, body: str) -> str:
-    layout = meta.get("layout", "doc")
     esc = lambda text: html.escape(text, quote=True)
-    if layout == "home":
-        header = ""
-        hero = HERO.format(
-            tagline=inline(meta.get("tagline", "")),
-            lede=inline(meta.get("lede", "")),
-            status=inline(meta.get("status", "")),
-        )
-        canonical = f"{SITE}/"
-    else:
-        header, hero = HEADER, ""
-        canonical = f"{SITE}/{stem}"
+    canonical = f"{SITE}/{stem}"
     return TEMPLATE.format(
         title=esc(meta["title"]),
         description=esc(meta.get("description") or DESCRIPTIONS.get(stem, DEFAULT_DESCRIPTION)),
         canonical=canonical,
         site=SITE,
-        layout=layout,
-        header=header,
-        hero=hero,
+        header=HEADER,
         body=body,
     )
 

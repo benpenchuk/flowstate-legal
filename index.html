@@ -3,51 +3,258 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FlowState, a strength training log for iPhone</title>
-<meta name="description" content="FlowState is an iPhone app for logging strength training. One tap per set, a rest timer that starts on its own, personal records and Apple Health. In private beta on TestFlight.">
+<title>FlowState: a strength training log for iPhone</title>
+<meta name="description" content="FlowState is an iPhone app for logging strength training. One tap per set, a rest timer that starts itself, and your records for every lift. In private beta.">
 <meta name="theme-color" content="#f7f5f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131217" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://flowstatefit.app/">
 <link rel="icon" type="image/png" href="icon.png">
+<link rel="icon" type="image/png" href="icon-dark.png" media="(prefers-color-scheme: dark)">
 <link rel="apple-touch-icon" href="icon.png">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="FlowState">
-<meta property="og:title" content="FlowState, a strength training log for iPhone">
-<meta property="og:description" content="FlowState is an iPhone app for logging strength training. One tap per set, a rest timer that starts on its own, personal records and Apple Health. In private beta on TestFlight.">
-<meta property="og:image" content="https://flowstatefit.app/icon.png">
-<link rel="stylesheet" href="style.css">
+<meta property="og:title" content="FlowState">
+<meta property="og:description" content="A strength training log for iPhone. Log a set in one tap. Made by Ben.">
+<meta property="og:url" content="https://flowstatefit.app/">
+<meta property="og:image" content="https://flowstatefit.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="FlowState: a strength log that keeps up, with the weekly ring showing 4 of 5 sessions.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="home.css">
 </head>
-<body class="home">
-<main>
-<section class="hero">
-<picture><source media="(prefers-color-scheme: dark)" srcset="icon-dark.png"><img src="icon.png" width="72" height="72" alt="" fetchpriority="high"></picture>
-<h1>FlowState</h1>
-<p class="tagline">A strength training log for iPhone.</p>
-<p class="lede">Log each set in one tap, rest on a timer that starts itself, and keep your records for every lift.</p>
-<p class="status">In private beta on TestFlight</p>
-</section>
-<article>
-<h2>What it does</h2>
-<ul>
-<li><strong>One tap per set.</strong> Each set is prefilled from your last session. If you hit the same numbers, logging it is one tap.</li>
-<li><strong>A rest timer that starts on its own.</strong> It starts when you log a working set. A Live Activity counts it down on your lock screen, and FlowState alerts you when rest is over, even from another app, if you allow notifications.</li>
-<li><strong>Personal records for every lift.</strong> FlowState flags a new record when you log it, and keeps each lift's best in one place.</li>
-<li><strong>Starter templates.</strong> Push, pull, legs, upper body and full body are ready to add and change. You can make your own too.</li>
-<li><strong>Apple Health.</strong> If you allow it, FlowState saves your finished workouts to Health and reads your body weight from it.</li>
-<li><strong>Works offline.</strong> Every set is saved on your iPhone first, so logging never waits for a signal.</li>
-<li><strong>Backed up to your account.</strong> Sign in with Apple or email, and a new iPhone gets your history back.</li>
-<li><strong>Free, with no ads.</strong> No tracking either. <a href="privacy">Read the privacy policy</a>.</li>
-</ul>
-<h2>Availability</h2>
-<p>FlowState is in private beta on TestFlight. It is coming to the App Store. There is no date yet.</p>
-<h2>Help</h2>
-<p>Questions and feedback are on the <a href="support">support page</a>.</p>
-</article>
-</main>
-<footer>
-<div class="foot">
-<nav aria-label="Footer"><a href="privacy">Privacy</a><a href="support">Support</a></nav>
-<p>Made by Ben Penchuk.</p>
+<body>
+<div class="page">
+
+<div class="rings rings-wide" aria-hidden="true">
+<svg width="1440" height="960" viewBox="0 0 1440 960"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="720" cy="650" r="250"/><circle cx="720" cy="650" r="400"/><circle cx="720" cy="650" r="550"/><circle cx="720" cy="650" r="700"/></g></svg>
 </div>
+<div class="rings rings-narrow" aria-hidden="true">
+<svg width="390" height="1000" viewBox="0 0 390 1000"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="195" cy="520" r="230"/><circle cx="195" cy="520" r="340"/><circle cx="195" cy="520" r="450"/></g></svg>
+</div>
+
+<header class="site-header wrap">
+<a class="brand" href="./"><span class="mark" aria-hidden="true"></span><span>FlowState</span></a>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="hero wrap" aria-labelledby="hero-title">
+<h1 id="hero-title" class="rise">A strength log<br>that keeps up.</h1>
+<p class="hero-sub rise">One tap per set, a rest timer that starts itself, and every lift's best in one place.<span class="wide-only"> For iPhone.</span></p>
+<div class="cta rise">
+<a class="btn" href="mailto:support@flowstatefit.app?subject=FlowState%20invite">Ask for an invite</a>
+<p class="status">In private beta on TestFlight</p>
+</div>
+
+<div class="exhibit">
+
+<div class="x-ring">
+<div class="card ringcard rise" role="img" aria-label="The FlowState home card. 4 of 5 sessions this week, a 3 day streak, 32.4 thousand pounds lifted, and a bar for each day's volume.">
+<div class="rc-top">
+<div class="ring">
+<svg viewBox="0 0 124 124"><circle class="track" cx="62" cy="62" r="52"/><circle class="arc ring-arc" cx="62" cy="62" r="52" transform="rotate(-90 62 62)"/></svg>
+<div class="ring-text"><span class="ring-num"><span class="cnt cnt-hero"></span><span class="of">/5</span></span><span class="ring-cap">this week</span></div>
+</div>
+<div class="rc-stats">
+<div><span class="streak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5c.8 3.6 5.5 5.6 5.5 11a5.5 5.5 0 0 1-11 0c0-2.6 1.5-4 2.6-5.6.6 1.6 1.5 2.2 2.4 2.3-.6-2.7.1-5.1.5-7.7z"/></svg>3 days</span><span class="stat-cap">current streak</span></div>
+<div><span class="vol">32.4K lbs</span><span class="stat-cap">lifted this week</span></div>
+</div>
+</div>
+<div class="days">
+<div class="day"><span class="bar on"></span><span class="dl">S</span></div>
+<div class="day"><span class="bar"></span><span class="dl">M</span></div>
+<div class="day"><span class="bar on"></span><span class="dl">T</span></div>
+<div class="day"><span class="bar on"></span><span class="dl">W</span></div>
+<div class="day"><span class="bar today"></span><span class="dl now">T</span></div>
+<div class="day"><span class="bar"></span><span class="dl">F</span></div>
+<div class="day"><span class="bar"></span><span class="dl">S</span></div>
+</div>
+</div>
+</div>
+
+<div class="x-lock">
+<div class="island rise" role="img" aria-label="The FlowState rest timer in the Dynamic Island, counting down from 1 minute 12 seconds.">
+<span class="mark"></span>
+<span class="cap">
+<svg width="50" height="25" viewBox="0 0 50 25"><path class="cap-track" d="M25 1H37.5A11.5 11.5 0 0 1 37.5 24H12.5A11.5 11.5 0 0 1 12.5 1Z"/><path class="cap-arc" d="M25 1H37.5A11.5 11.5 0 0 1 37.5 24H12.5A11.5 11.5 0 0 1 12.5 1Z" pathLength="100"/></svg>
+<span class="cap-time" data-clock>1:12</span>
+</span>
+</div>
+<div class="lock rise" role="img" aria-label="The FlowState rest timer on the Lock Screen, counting down. Next: set 3 of Bench Press, 185 pounds for 6 reps.">
+<div class="lock-head"><span class="mark"></span><span class="lock-title">Push Day</span><span class="lock-time">· 24:10</span><span class="lock-sets">6 of 16 sets</span></div>
+<div class="segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="lock-rest">
+<div class="lock-clock"><span class="lbl">Rest</span><span class="big" data-clock>1:12</span></div>
+<div class="lock-next"><span class="lbl">Next</span><span class="nx">Set 3 · 185 × 6</span><span class="nx-ex">Bench Press</span></div>
+</div>
+</div>
+</div>
+
+<div class="x-chart">
+<div class="card chartcard rise" role="img" aria-label="A FlowState exercise card for Bench Press with an estimated one-rep max of 234 pounds and a rising chart, and a new record of 185 pounds for 8 reps.">
+<div class="cc-top">
+<div class="cc-title"><span class="cc-cap">Bench Press · estimated max</span><span class="cc-num">234<span class="unit"> lbs</span></span></div>
+<div class="range"><span class="sel">3M</span><span>1Y</span><span>All</span></div>
+</div>
+<svg class="chart" viewBox="0 0 304 84"><path class="grid" d="M0 28H304M0 62H304"/><path class="spark" d="M4 70 C 40 68, 54 56, 84 57 S 128 44, 160 42 S 206 30, 232 27 S 280 15, 296 13" pathLength="100"/><circle class="spark-dot" cx="296" cy="13" r="5"/></svg>
+</div>
+<div class="card recordrow rise" role="img" aria-label="A new record: Bench Press, 185 pounds for 8 reps.">
+<span class="tile"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4"/></svg></span>
+<span class="rr-text"><span class="rr-title">New record</span><span class="rr-sub">Bench Press</span></span>
+<span class="rr-val">185 × 8</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Log the set -->
+<section class="split log wrap" aria-labelledby="log-title">
+<div class="copy">
+<span class="eyebrow reveal">One tap per set</span>
+<h2 id="log-title" class="reveal">Log the set.<br>Rest starts.</h2>
+<p class="reveal">Each set is filled in from your last session. If you hit the same numbers, logging it is one tap, and the rest timer starts on its own.</p>
+</div>
+<ol class="beats" role="list">
+<li class="reveal"><span class="n" aria-hidden="true">1</span><span class="t"><strong>Already filled in</strong><span>Weight and reps come from last time.</span></span></li>
+<li class="reveal"><span class="n" aria-hidden="true">2</span><span class="t"><strong>One tap</strong><span>Change a number only when it changed.</span></span></li>
+<li class="reveal"><span class="n" aria-hidden="true">3</span><span class="t"><strong>Rest starts itself</strong><span>It keeps counting on your Lock Screen and in the Dynamic Island.</span></span></li>
+</ol>
+<div class="visual reveal">
+
+<!-- Phone width: part of the workout screen, no frame -->
+<div class="panel demo" role="img" aria-label="Part of the FlowState workout screen. Lat Pulldown, three sets filled in at 130 pounds for 10 reps. The second set is logged and a rest timer rises from the bottom bar and starts counting down.">
+<div class="p-head">
+<span class="p-title"><span class="ex">Lat Pulldown</span><span class="ex-sub">Back · 3 working sets</span></span>
+<span class="p-clock"><span class="p-day">Pull Day</span><span class="p-time">24:16</span></span>
+</div>
+<div class="last"><span class="last-lbl">Last time</span><span class="pill">125 × 10 × 2</span><span class="pill">125 × 9</span></div>
+<div class="sets">
+<div class="sets-head"><span>SET</span><span>LBS</span><span>REPS</span><span></span></div>
+<div class="set-row"><span class="sn dim">1</span><span class="field">130</span><span class="field">10</span><span class="chk"><svg width="30" height="30" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="rgba(244,98,30,0.16)"/><path d="M10 16.6l4.2 4.2 8-9.2" fill="none" stroke="#F4621E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<div class="set-row"><span class="sn">2</span><span class="field">130</span><span class="field">10</span><span class="chk"><svg width="30" height="30" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="#6B6660" stroke-width="2"/><circle class="wash" cx="16" cy="16" r="15"/><path class="draw" d="M10 16.6l4.2 4.2 8-9.2" pathLength="1"/></svg></span></div>
+<div class="set-row"><span class="sn dim">3</span><span class="field dim">130</span><span class="field dim">10</span><span class="chk"><svg width="30" height="30" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="#6B6660" stroke-width="2"/></svg></span></div>
+</div>
+<div class="logbtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Log set 2 · 130 × 10</div>
+<div class="bar-space">
+<div class="restbar">
+<div class="rest"><div class="rest-in"><div class="rest-top"><span class="rest-lbl">Rest</span><span class="rest-clock" data-rest>1:30</span></div><span class="rest-track"><span class="rline"></span></span></div></div>
+<div class="bar-btns"><span class="b-add"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add exercise</span><span class="b-fin">Finish</span></div>
+</div>
+</div>
+</div>
+
+<!-- Wider screens: the whole workout screen in a plain rounded frame -->
+<div class="frame demo" role="img" aria-label="The FlowState workout screen. Lat Pulldown, three sets filled in at 130 pounds for 10 reps. The second set is logged and a rest timer rises from the bottom bar and starts counting down.">
+<div class="screen">
+<div class="canvas">
+<div class="w-body">
+<div class="w-top">
+<span class="round"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5F3F0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+<span class="w-time"><span class="w-day">Pull Day</span><span class="w-clock">24:16</span></span>
+<span class="round"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5F3F0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M5 12h14M5 17h14"/></svg></span>
+</div>
+<div class="prog"><i class="a"></i><i class="b"></i><i></i><i></i><i></i><i></i></div>
+<div class="w-title">
+<span class="p-title"><span class="ex">Lat Pulldown</span><span class="ex-sub">Back · 3 working sets</span></span>
+<span class="round"><svg width="18" height="18" viewBox="0 0 24 24" fill="#F5F3F0"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span>
+</div>
+<div class="last"><span class="last-lbl">Last time</span><span class="pill">125 × 10 × 2</span><span class="pill">125 × 9</span></div>
+<div class="sets">
+<div class="sets-head"><span>SET</span><span>LBS</span><span>REPS</span><span></span></div>
+<div class="set-warm"><span class="warm-tag">W</span><span class="warm-txt">70 × 12 <span>· warm-up</span></span><span class="chk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9D978F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></div>
+<div class="set-row"><span class="sn dim">1</span><span class="field">130</span><span class="field">10</span><span class="chk"><svg width="30" height="30" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="rgba(244,98,30,0.16)"/><path d="M10 16.6l4.2 4.2 8-9.2" fill="none" stroke="#F4621E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<div class="set-row"><span class="sn">2</span><span class="field">130</span><span class="field">10</span><span class="chk"><svg width="30" height="30" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="#6B6660" stroke-width="2"/><circle class="wash" cx="16" cy="16" r="15"/><path class="draw" d="M10 16.6l4.2 4.2 8-9.2" pathLength="1"/></svg></span></div>
+<div class="set-row"><span class="sn dim">3</span><span class="field dim">130</span><span class="field dim">10</span><span class="chk"><svg width="30" height="30" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="#6B6660" stroke-width="2"/></svg></span></div>
+<div class="add-set"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add set</div>
+</div>
+<div class="logbtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Log set 2 · 130 × 10</div>
+<div class="up-next"><span class="last-lbl">Up next</span><span class="un-name">Seated Cable Row</span><span class="un-meta">140 × 10 × 2</span></div>
+</div>
+<div class="restbar float">
+<div class="rest"><div class="rest-in"><div class="rest-top"><span class="rest-lbl">Rest</span><span class="rest-clock" data-rest>1:30</span></div><span class="rest-track"><span class="rline"></span></span></div></div>
+<div class="bar-btns"><span class="b-add"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add exercise</span><span class="b-fin">Finish</span></div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Records -->
+<section class="split records wrap" aria-labelledby="rec-title">
+<div class="copy">
+<span class="eyebrow reveal">Records</span>
+<h2 id="rec-title" class="reveal">A new best, flagged as you log it.</h2>
+<p class="reveal">FlowState keeps every lift's best in one place: your best set at each rep count, and your estimated one-rep max over time.</p>
+</div>
+<div class="visual" role="img" aria-label="A new record banner for Bench Press, 185 pounds for 8 reps, above a list of the best set at each rep count.">
+<div class="card banner reveal">
+<span class="tile"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4"/></svg></span>
+<span class="rr-text"><span class="rr-title">New record</span><span class="rr-sub">Bench Press · best 8 reps</span></span>
+<span class="rr-val">185 × 8</span>
+</div>
+<div class="card reps reveal">
+<div class="reps-head"><span>Best by reps</span><span class="sub">Bench Press</span></div>
+<div class="rep"><span class="rep-l">1 rep</span><span class="rep-v">225 <small>lbs</small></span></div>
+<div class="rep"><span class="rep-l">3 reps</span><span class="rep-v">205 <small>lbs</small></span></div>
+<div class="rep"><span class="rep-l">5 reps</span><span class="rep-v">195 <small>lbs</small></span></div>
+<div class="rep best"><span class="rep-l">8 reps</span><span class="today"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 21h8M10 17h4"/></svg>Today</span><span class="rep-v">185 <small>lbs</small></span></div>
+<div class="rep"><span class="rep-l">10 reps</span><span class="rep-v">165 <small>lbs</small></span></div>
+</div>
+</div>
+</section>
+
+<!-- Your data -->
+<section class="split data wrap" aria-labelledby="data-title">
+<div class="copy">
+<span class="eyebrow reveal">Your data</span>
+<h2 id="data-title" class="reveal">Yours, and backed up.</h2>
+<p class="reveal">Every set is saved on your iPhone first, so logging never waits for a signal. Sign in with Apple or email, and a new iPhone gets your history back.</p>
+</div>
+<ul class="card facts reveal" role="list">
+<li><span class="tile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></svg></span><span class="f-text"><strong>Works offline</strong><span>Every set is saved on your iPhone first.</span></span></li>
+<li><span class="tile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-7.96A5.5 5.5 0 0 1 17.2 9.1 4.5 4.5 0 0 1 17 18z"/></svg></span><span class="f-text"><strong>Backed up to your account</strong><span>Sign in with Apple or email.</span></span></li>
+<li><span class="tile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="f-text"><strong>Apple Health</strong><span>Saves finished workouts and reads your body weight, if you allow it.</span></span></li>
+<li><span class="tile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg></span><span class="f-text"><strong>Free, with no ads</strong><span>No tracking either. <a href="privacy">Read the privacy policy</a>.</span></span></li>
+</ul>
+</section>
+
+<!-- Templates -->
+<section class="templates wrap" aria-labelledby="tpl-title">
+<div class="tpl-inner reveal">
+<div class="tpl-text"><h3 id="tpl-title">Start from a template.</h3><p>Five are ready to add and change. Or make your own.</p></div>
+<ul class="chips" role="list"><li>Push</li><li>Pull</li><li>Legs</li><li>Upper body</li><li>Full body</li></ul>
+</div>
+</section>
+
+<!-- Closing -->
+<section class="closing wrap" aria-labelledby="close-title">
+<div class="close-ring reveal-ring" aria-hidden="true">
+<svg viewBox="0 0 124 124"><circle class="track" cx="62" cy="62" r="52"/><circle class="arc close-arc" cx="62" cy="62" r="52" transform="rotate(-90 62 62)"/></svg>
+<div class="close-num"><span><span class="cnt cnt-close"></span><span class="of">/5</span></span></div>
+</div>
+<h2 id="close-title" class="reveal">In private beta.<br>Coming to the <span class="nw">App Store.</span></h2>
+<p class="close-sub reveal">FlowState is made by one person. If you want to try it, ask for an invite.</p>
+<a class="btn reveal" href="mailto:support@flowstatefit.app?subject=FlowState%20invite">Ask for an invite</a>
+<p class="fine reveal">Free. Needs an iPhone with iOS 26 or later.</p>
+</section>
+
+</main>
+
+<footer class="site-footer wrap">
+<div class="foot-row">
+<span class="foot-brand"><span class="mark" aria-hidden="true"></span><span>FlowState</span></span>
+<nav aria-label="Footer"><a href="privacy">Privacy</a><a href="support">Support</a></nav>
+<p class="made">Made by Ben Penchuk.</p>
+</div>
+<p class="fine">Free. No ads. No tracking. Sample data shown.</p>
 </footer>
+
+</div>
+<script src="home.js"></script>
 </body>
 </html>
